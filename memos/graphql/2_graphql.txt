@@ -1,0 +1,40 @@
+----------------------------------
+
+Graphql
+=> 트리같은 구조도 id와 관계를 기반으로
+   재배치하면 하나의 그래프다
+=> 위에서 아래를 따라가며 쿼리가가능
+
+query {
+  user(id: 23) {
+    friends {
+      company {
+        name
+        position
+      }
+    }
+  }
+}
+
+----------------------------------
+
+DB <=> Express Server <=> GraphiQL
+
+----------------------------------
+
+서버 구축
+> npm install express express-graphql graphql lodash
+
+=> 미들웨어에 의해 요청이 graphql인지 판단하여 분기
+=> graphiql로 시각화된 그래프를 확인가능
+
+
+json-server로 유사 데이터 API 구축
+
+> json-server --watch db.json
+
+nodemon으로 서버측 변경에 대해 재시작
+
+> npm install -D nodemon
+
+----------------------------------
